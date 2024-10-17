@@ -1,5 +1,5 @@
 import streamlit as st
-from tensorflow import keras
+import tensorflow as tf
 import numpy as np
 from PIL import Image
 import io
@@ -9,9 +9,9 @@ from streamlit_drawable_canvas import st_canvas
 st.set_page_config(page_title="MNIST Digit Recognition", page_icon="✏️", layout="centered")
 
 # Load the saved model
-@st.cache_resource
+@st.cache_resource()
 def load_model():
-    return keras.models.load_model('mnist_model.h5')
+    return tf.keras.models.load_model('mnist_model.h5', compile=False)
 
 model = load_model()
 
