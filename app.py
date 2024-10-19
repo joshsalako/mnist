@@ -1,5 +1,6 @@
 import streamlit as st
 import tensorflow as tf
+from tensorflow import keras
 import numpy as np
 from PIL import Image
 import io
@@ -11,7 +12,9 @@ st.set_page_config(page_title="MNIST Digit Recognition", page_icon="✏️", lay
 # Load the saved model
 @st.cache_resource()
 def load_model():
-    return tf.keras.models.load_model('mnist_model.h5', compile=False)
+    return tf.keras.models.load_model('mnist_model.h5', 
+                                       custom_objects={'InputLayer': keras.layers.InputLayer}, 
+                                       compile=False)
 
 model = load_model()
 
