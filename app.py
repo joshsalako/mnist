@@ -86,7 +86,7 @@ if st.button('Predict', key='predict_button'):
 
         # Display the results
         st.markdown(f"<p class='result'>Predicted Digit: {predicted_digit}</p>", unsafe_allow_html=True)
-        st.balloons()
+        #st.balloons()
     else:
         st.warning("Please draw or upload an image before predicting.")
 
